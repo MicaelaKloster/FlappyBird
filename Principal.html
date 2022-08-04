@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./Juego/imagenes/png-transparent-flappy-birds-logo-.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz@9..144&display=swap" rel="stylesheet">
+    <title>Flappy Bird</title>
+    <style>
+        body{
+            display: flex;
+            background-image: url("./Juego/imagenes/Flappy-Bird-1.jpg");
+            background-size: cover;
+            justify-content: space-between;
+            flex-direction: column;
+
+        }
+        .porta_cv {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            align-content: flex-end;
+            align-self: flex-end;
+            width: 100%;
+        }
+        .CV{
+            display: flex;
+            width: max-content;
+            justify-self: center;
+            align-items: center;
+            font-family: 'Bebas Neue', cursive;
+            font-weight: 500;
+            color: black;
+            transition: .3s;
+        }
+        .CV:hover {
+            color: rgb(53, 44, 180);
+        }
+        @media screen and (min-width: 968px) {
+            .porta_cv {
+                margin-bottom: 3rem;
+            }
+    }
+  
+        a:-webkit-any-link{
+            cursor: pointer;
+            text-decoration: solid;
+        }
+        #boton{
+            font-family: 'Bebas Neue', cursive;
+            font-size: 30px;
+            background-color: rgb(43, 189, 226);
+            padding: 15px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .centrar{
+            text-align: center;
+        }
+        footer {
+            position:absolute; 
+            bottom:15px; 
+            right:15px;
+            width: 100%;
+        }
+    </style>
+    
+    <script>
+        var ventana;
+        
+        //Ejemplo de función para abrir una ventana en el navegador con un tamaño personalizado
+        //En este caso se abrirá una ventana en blanco
+        function abrirVentana()
+        {
+          if (!ventanaEmergenteAbierta())
+          {	 
+            ventana = window.open("./Juego/index.html", "",
+                "menubar=no, scrollbars=no, width=300, height=530");
+            aviso("Ventana emergente abierta con tamaño 300x530.");		
+          }
+          else
+          {
+            aviso("La ventana emergente ya está abierta. Ciérrela si quiere volver a abrirla.");
+          }
+        }
+        
+       
+        
+        //Cierra la ventana emergente
+        function cerrarVentana ()
+        {
+          if (ventanaEmergenteAbierta())
+          {
+            ventana.close();		
+            aviso ("Ha cerrado la ventana emergente.");		
+          }
+        }
+        
+        //Comprueba si se ha abierto la ventana emergente
+        //Devuelve true si se ha habierto, false si no se ha abierto
+        function ventanaEmergenteAbierta ()
+        {
+          if ((typeof ventana === 'undefined') || (ventana.closed))
+          {
+            aviso("No ha abierto la ventana.");		
+            return false;
+          }
+          else
+          {
+            return true;
+          }
+        }
+        
+        //Muestra un aviso en la página principal, modificando el objeto p con id "aviso"
+        function aviso (texto)
+        {
+          document.getElementById("aviso").innerHTML = "<b>" + texto + "</b>";		
+        }
+        
+      </script>
+</head>
+<body>
+    <div class="porta-cv">
+        <a class="CV" href="./Juego/cv/CV - KLOSTER MICAELA.pdf">Micaela Kloster<a>
+    </div>
+</body>
+<footer>
+    
+    <div class="centrar">
+        <button id="boton" onclick="abrirVentana()">Abrir Juego</button>
+        <button id="boton" onclick="cerrarVentana()">Cerrar Juego</button>
+        <p id="aviso"></p>
+
+    </div>
+</footer>
+</html>
