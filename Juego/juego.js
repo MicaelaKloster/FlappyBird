@@ -28,7 +28,7 @@ tuberias[0] = {
 var punto = new Audio();
 punto.src = "audios/punto.mp3";
 
-//VARIABLES IMAGENES
+//? VARIABLES IMAGENES
 var bird = new Image();
 bird.src = "imagenes/bird.png";
 
